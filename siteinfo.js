@@ -72,9 +72,17 @@ fetch('siteinfo.json')
     }
     // Contact info (contact.html)
     if(document.getElementById('address')) {
-      // Split addresses by semicolon or line break, show each on its own line
+      // Split addresses by semicolon or line break, show as bulleted list
       const addresses = (data.address || '').split(/;|\n/).map(a => a.trim()).filter(Boolean);
-      document.getElementById('address').innerHTML = addresses.map(a => `<div>${a}</div>`).join('');
+      document.getElementById('address').innerHTML = '<strong>Addresses:</strong><ul class="mb-2">' + addresses.map(a => `<li>${a}</li>`).join('') + '</ul>';
+      // Show maps for each address if map containers exist
+      addresses.forEach((addr, idx) => {
+        const mapElem = document.getElementById('map' + (idx+1));
+        if (mapElem) {
+          const addressParam = encodeURIComponent(addr);
+          mapElem.src = `https://maps.google.com/maps?q=${addressParam}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+        }
+      });
     }
     if(document.getElementById('phone'))
       document.getElementById('phone').textContent = data.phone || '';
@@ -92,17 +100,6 @@ fetch('siteinfo.json')
         hoursElem.innerHTML = html;
       } else {
         hoursElem.textContent = data.hours || '';
-      }
-    }
-    // Map: plot both addresses if present
-    if(document.getElementById('map') && addresses && addresses.length > 0) {
-      // If two addresses, use Google Maps directions to show both
-      if (addresses.length > 1) {
-        const mapUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(addresses[0])}&destination=${encodeURIComponent(addresses[1])}`;
-        document.getElementById('map').src = mapUrl;
-      } else {
-        const addressParam = encodeURIComponent(addresses[0]);
-        document.getElementById('map').src = `https://maps.google.com/maps?q=${addressParam}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
       }
     }
   })

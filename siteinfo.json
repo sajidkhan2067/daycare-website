@@ -2,7 +2,7 @@
   "headline": "Welcome to Living Skies Daycare",
   "tagline": "Qualified and experienced staff, ECE and Autism Spectrum Disorders Specialist serving since 2010 in Regina.",
   "address": "2007 Potts Cres, Regina, SK, Canada; 8 Dolphin Bay, Regina, SK, Canada",
-  "phone": "(306) 555-1234",
+  "phone": "(306) 737-7756",
   "email": "info@livingskiesdaycare.ca",
   "hours": {
     "Monday": "7:30am - 6:00pm",
@@ -22,10 +22,5 @@
   ],
   "staff": [
     {"name": "Shazia Bilal", "role": "Director / ECE & Autism Spectrum Disorders Specialist", "bio": "Qualified and experienced staff, serving since 2010 in Regina."}
-  ],
-  "gallery": [
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1465101046530-73398c7f1b58?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80"
   ]
 }
